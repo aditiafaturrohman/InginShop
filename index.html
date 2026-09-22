@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NusaShop - Demo e-commerce modern dengan HTML, CSS, dan JavaScript">
+  <title>InginShop — E-Commerce</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <a class="logo" href="#home">Ingin<span>Shop</span></a>
+      <nav class="desktop-nav">
+        <a href="#home">Beranda</a>
+        <a href="#products">Produk</a>
+        <a href="#categories">Kategori</a>
+        <a href="#about">Tentang</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeBtn" aria-label="Ganti tema">🌙</button>
+        <button class="icon-btn cart-btn" id="cartBtn" aria-label="Keranjang">🛒<b id="cartCount">0</b></button>
+        <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#home">Beranda</a>
+      <a href="#products">Produk</a>
+      <a href="#categories">Kategori</a>
+      <a href="#about">Tentang</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">BELANJA LEBIH MUDAH</p>
+          <h1>Temukan produk favoritmu, <span>tanpa ribet.</span></h1>
+          <p class="hero-text">E-commerce modern untuk kebutuhan fashion, elektronik, dan lifestyle dengan harga bersahabat.</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#products">Belanja Sekarang →</a>
+            <a class="btn secondary" href="#categories">Lihat Kategori</a>
+          </div>
+          <div class="trust">
+            <div><strong>10K+</strong><small>Pelanggan</small></div>
+            <div><strong>500+</strong><small>Produk</small></div>
+            <div><strong>4.9/5</strong><small>Rating</small></div>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="hero-badge">🔥 Promo Minggu Ini</div>
+          <div class="hero-product">🎧</div>
+          <h3>Wireless Headphone Pro</h3>
+          <p>Noise cancelling • 40 jam baterai</p>
+          <div class="hero-price">Rp699.000 <del>Rp899.000</del></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container categories" id="categories">
+      <div class="section-head">
+        <div><p class="eyebrow">PILIHAN UNTUKMU</p><h2>Belanja berdasarkan kategori</h2></div>
+      </div>
+      <div class="category-grid">
+        <button class="category-card" data-category="Fashion"><span>👕</span><strong>Fashion</strong><small>120+ produk</small></button>
+        <button class="category-card" data-category="Elektronik"><span>📱</span><strong>Elektronik</strong><small>80+ produk</small></button>
+        <button class="category-card" data-category="Lifestyle"><span>🎒</span><strong>Lifestyle</strong><small>90+ produk</small></button>
+        <button class="category-card" data-category="Olahraga"><span>⚽</span><strong>Olahraga</strong><small>60+ produk</small></button>
+      </div>
+    </section>
+
+    <section class="container products-section" id="products">
+      <div class="section-head product-head">
+        <div><p class="eyebrow">KOLEKSI TERBARU</p><h2>Produk pilihan</h2></div>
+        <div class="controls">
+          <label class="search"><span>⌕</span><input id="searchInput" type="search" placeholder="Cari produk..."></label>
+          <select id="sortSelect" aria-label="Urutkan produk">
+            <option value="featured">Terpopuler</option>
+            <option value="low">Harga terendah</option>
+            <option value="high">Harga tertinggi</option>
+            <option value="rating">Rating tertinggi</option>
+          </select>
+        </div>
+      </div>
+      <div class="filter-row" id="filters">
+        <button class="filter active" data-filter="Semua">Semua</button>
+        <button class="filter" data-filter="Fashion">Fashion</button>
+        <button class="filter" data-filter="Elektronik">Elektronik</button>
+        <button class="filter" data-filter="Lifestyle">Lifestyle</button>
+        <button class="filter" data-filter="Olahraga">Olahraga</button>
+      </div>
+      <div class="product-grid" id="productGrid"></div>
+      <div class="empty" id="emptyState" hidden>Produk tidak ditemukan. Coba kata kunci lain.</div>
+    </section>
+
+    <section class="promo container">
+      <div><p class="eyebrow">PENAWARAN SPESIAL</p><h2>Diskon hingga 40%</h2><p>Gunakan kode <strong>NUSA40</strong> saat checkout.</p></div>
+      <button class="btn light" id="promoBtn">Gunakan Promo</button>
+    </section>
+
+    <section class="container about" id="about">
+      <div><p class="eyebrow">InginShop</p><h2>Belanja nyaman, aman, dan sederhana.</h2></div>
+      <div class="about-copy"><p>inginShop adalah e-commerce front-end yang dibuat menggunakan HTML, CSS, dan JavaScript murni. Data produk dan keranjang tersimpan di browser menggunakan localStorage.</p><div class="features"><span>✓ Responsive</span><span>✓ Keranjang otomatis</span><span>✓ Dark mode</span><span>✓ Checkout demo</span></div></div>
+    </section>
+  </main>
+
+  <footer><div class="container footer"><strong>InginShop</strong><span>© 2026 E-Commerce. Dibuat dengan HTML, CSS & JavaScript.</span></div></footer>
+
+  <div class="overlay" id="overlay"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="drawer-head"><h2>Keranjang</h2><button class="close" id="closeCart">×</button></div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-bottom">
+      <div class="total"><span>Total</span><strong id="cartTotal">Rp0</strong></div>
+      <button class="btn primary full" id="checkoutBtn">Lanjut Checkout</button>
+      <button class="text-btn" id="clearCart">Kosongkan keranjang</button>
+    </div>
+  </aside>
+
+  <div class="modal" id="checkoutModal">
+    <div class="modal-card">
+      <button class="close modal-close" id="closeModal">×</button>
+      <p class="eyebrow">CHECKOUT</p><h2>Selesaikan pesanan</h2>
+      <form id="checkoutForm">
+        <label>Nama lengkap<input required id="name" placeholder="Nama Anda"></label>
+        <label>No. WhatsApp<input required id="phone" type="tel" placeholder="08xxxxxxxxxx"></label>
+        <label>Alamat pengiriman<textarea required id="address" rows="3" placeholder="Alamat lengkap"></textarea></label>
+        <label>Metode pembayaran<select required id="payment"><option value="">Pilih metode</option><option>Transfer Bank</option><option>QRIS</option><option>COD</option><option>E-Wallet</option></select></label>
+        <div class="checkout-total"><span>Total pembayaran</span><strong id="checkoutTotal">Rp0</strong></div>
+        <button class="btn primary full" type="submit">Buat Pesanan</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
